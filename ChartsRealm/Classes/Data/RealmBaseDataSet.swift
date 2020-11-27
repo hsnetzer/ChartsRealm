@@ -245,8 +245,9 @@ open class RealmBaseDataSet: ChartBaseDataSet
     
     @objc internal func buildEntryFromResultObject(_ object: Object) -> ChartDataEntry
     {
-        let y = (object[_yValueField!] as! Object)["ele"] as! Int
-        return ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(y))
+        let location = object[_yValueField!] as! Object
+        let y = location["ele"] as! Int
+        return ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(y), data: location["waypoint"])
     }
     
     /// Makes sure that the cache is populated for the specified range
