@@ -167,7 +167,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         self.init(realm: realm, modelName: modelName, resultsWhere: resultsWhere, xValueField: nil, yValueField: yValueField, label: label)
     }
     
-    public convenience init(realm: Realm?, modelName: String, resultsWhere: String, yValueField: String, label: String?)
+    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, yValueField: String, label: String?)
     {
         var converted: RLMRealm?
         
