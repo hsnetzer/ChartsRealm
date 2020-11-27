@@ -236,21 +236,16 @@ open class RealmBaseDataSet: ChartBaseDataSet
         _cache.removeAll()
         _cache.reserveCapacity(Int(results.count))
         
-        var xValue: Double = 0.0
-        
         var iterator = NSFastEnumerationIterator(results)
         while let e = iterator.next()
         {
-            _cache.append(buildEntryFromResultObject(e as! RLMObject, x: xValue))
-            xValue += 1.0
+            _cache.append(buildEntryFromResultObject(e as! RLMObject))
         }
     }
     
-    @objc internal func buildEntryFromResultObject(_ object: RLMObject, x: Double) -> ChartDataEntry
+    @objc internal func buildEntryFromResultObject(_ object: RLMObject) -> ChartDataEntry
     {
-        let entry = ChartDataEntry(x: _xValueField == nil ? x : object[_xValueField!] as! Double, y: object[_yValueField!] as! Double)
-        
-        return entry
+        ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(object[_yValueField!] as! Int))
     }
     
     /// Makes sure that the cache is populated for the specified range
