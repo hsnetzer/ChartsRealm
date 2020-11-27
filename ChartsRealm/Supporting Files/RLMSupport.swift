@@ -92,10 +92,6 @@ extension RLMSyncManager {
 }
 
 extension RLMSyncUser {
-    public static var current: RLMSyncUser? {
-        return __current()
-    }
-
     public static var all: [String: RLMSyncUser] {
         return __allUsers()
     }
