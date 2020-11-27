@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BAE65211E90EE7700F71CEF /* RealmBarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65131E90EE7700F71CEF /* RealmBarDataSet.swift */; };
 		5BAE65221E90EE7700F71CEF /* RealmBarLineScatterCandleBubbleDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65141E90EE7700F71CEF /* RealmBarLineScatterCandleBubbleDataSet.swift */; };
 		5BAE65231E90EE7700F71CEF /* RealmBaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65151E90EE7700F71CEF /* RealmBaseDataSet.swift */; };
-		5BAE65241E90EE7700F71CEF /* RealmBubbleDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65161E90EE7700F71CEF /* RealmBubbleDataSet.swift */; };
-		5BAE65251E90EE7700F71CEF /* RealmCandleDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65171E90EE7700F71CEF /* RealmCandleDataSet.swift */; };
 		5BAE65261E90EE7700F71CEF /* RealmLineDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65181E90EE7700F71CEF /* RealmLineDataSet.swift */; };
 		5BAE65271E90EE7700F71CEF /* RealmLineRadarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE65191E90EE7700F71CEF /* RealmLineRadarDataSet.swift */; };
 		5BAE65281E90EE7700F71CEF /* RealmLineScatterCandleRadarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE651A1E90EE7700F71CEF /* RealmLineScatterCandleRadarDataSet.swift */; };
-		5BAE65291E90EE7700F71CEF /* RealmPieDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE651B1E90EE7700F71CEF /* RealmPieDataSet.swift */; };
-		5BAE652A1E90EE7700F71CEF /* RealmRadarDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE651C1E90EE7700F71CEF /* RealmRadarDataSet.swift */; };
 		5BAE652B1E90EE7700F71CEF /* RealmScatterDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE651D1E90EE7700F71CEF /* RealmScatterDataSet.swift */; };
 		5BAE652C1E90EE7700F71CEF /* ChartsRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BAE651F1E90EE7700F71CEF /* ChartsRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B64EF0F11FFB4711001E5CA0 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EF0F01FFB4711001E5CA0 /* RLMSupport.swift */; };
@@ -25,16 +20,11 @@
 /* Begin PBXFileReference section */
 		063FF0401D8CC9940094A042 /* Carthage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Carthage.xcconfig; sourceTree = "<group>"; };
 		06B120D51D811E6200D14B02 /* ChartsRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChartsRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BAE65131E90EE7700F71CEF /* RealmBarDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBarDataSet.swift; sourceTree = "<group>"; };
 		5BAE65141E90EE7700F71CEF /* RealmBarLineScatterCandleBubbleDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBarLineScatterCandleBubbleDataSet.swift; sourceTree = "<group>"; };
 		5BAE65151E90EE7700F71CEF /* RealmBaseDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBaseDataSet.swift; sourceTree = "<group>"; };
-		5BAE65161E90EE7700F71CEF /* RealmBubbleDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBubbleDataSet.swift; sourceTree = "<group>"; };
-		5BAE65171E90EE7700F71CEF /* RealmCandleDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCandleDataSet.swift; sourceTree = "<group>"; };
 		5BAE65181E90EE7700F71CEF /* RealmLineDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLineDataSet.swift; sourceTree = "<group>"; };
 		5BAE65191E90EE7700F71CEF /* RealmLineRadarDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLineRadarDataSet.swift; sourceTree = "<group>"; };
 		5BAE651A1E90EE7700F71CEF /* RealmLineScatterCandleRadarDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLineScatterCandleRadarDataSet.swift; sourceTree = "<group>"; };
-		5BAE651B1E90EE7700F71CEF /* RealmPieDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmPieDataSet.swift; sourceTree = "<group>"; };
-		5BAE651C1E90EE7700F71CEF /* RealmRadarDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRadarDataSet.swift; sourceTree = "<group>"; };
 		5BAE651D1E90EE7700F71CEF /* RealmScatterDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmScatterDataSet.swift; sourceTree = "<group>"; };
 		5BAE651F1E90EE7700F71CEF /* ChartsRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartsRealm.h; sourceTree = "<group>"; };
 		5BAE65201E90EE7700F71CEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,16 +79,11 @@
 		5BAE65121E90EE7700F71CEF /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				5BAE65131E90EE7700F71CEF /* RealmBarDataSet.swift */,
 				5BAE65141E90EE7700F71CEF /* RealmBarLineScatterCandleBubbleDataSet.swift */,
 				5BAE65151E90EE7700F71CEF /* RealmBaseDataSet.swift */,
-				5BAE65161E90EE7700F71CEF /* RealmBubbleDataSet.swift */,
-				5BAE65171E90EE7700F71CEF /* RealmCandleDataSet.swift */,
 				5BAE65181E90EE7700F71CEF /* RealmLineDataSet.swift */,
 				5BAE65191E90EE7700F71CEF /* RealmLineRadarDataSet.swift */,
 				5BAE651A1E90EE7700F71CEF /* RealmLineScatterCandleRadarDataSet.swift */,
-				5BAE651B1E90EE7700F71CEF /* RealmPieDataSet.swift */,
-				5BAE651C1E90EE7700F71CEF /* RealmRadarDataSet.swift */,
 				5BAE651D1E90EE7700F71CEF /* RealmScatterDataSet.swift */,
 			);
 			path = Data;
@@ -213,13 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BAE65211E90EE7700F71CEF /* RealmBarDataSet.swift in Sources */,
-				5BAE65291E90EE7700F71CEF /* RealmPieDataSet.swift in Sources */,
-				5BAE65251E90EE7700F71CEF /* RealmCandleDataSet.swift in Sources */,
 				5BAE65261E90EE7700F71CEF /* RealmLineDataSet.swift in Sources */,
 				5BAE65271E90EE7700F71CEF /* RealmLineRadarDataSet.swift in Sources */,
-				5BAE65241E90EE7700F71CEF /* RealmBubbleDataSet.swift in Sources */,
-				5BAE652A1E90EE7700F71CEF /* RealmRadarDataSet.swift in Sources */,
 				B64EF0F11FFB4711001E5CA0 /* RLMSupport.swift in Sources */,
 				5BAE65281E90EE7700F71CEF /* RealmLineScatterCandleRadarDataSet.swift in Sources */,
 				5BAE65221E90EE7700F71CEF /* RealmBarLineScatterCandleBubbleDataSet.swift in Sources */,
