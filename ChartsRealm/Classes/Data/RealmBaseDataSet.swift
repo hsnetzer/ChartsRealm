@@ -130,7 +130,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         self.init(results: converted, yValueField: yValueField)
     }
     
-    @objc public init(realm: RLMRealm?, modelName: String, resultsWhere: String, xValueField: String?, yValueField: String, label: String?)
+    @objc public init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?)
     {
         super.init()
         
@@ -144,13 +144,13 @@ open class RealmBaseDataSet: ChartBaseDataSet
         
         if realm != nil
         {
-            loadResults(realm: realm!, modelName: modelName)
+            loadResults(realm: realm!, modelName: modelName, predicate: resultsWhere)
         }
         
         initialize()
     }
     
-    public convenience init(realm: Realm?, modelName: String, resultsWhere: String, xValueField: String?, yValueField: String, label: String?)
+    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?)
     {
         var converted: RLMRealm?
         
@@ -162,7 +162,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         self.init(realm: converted, modelName: modelName, resultsWhere: resultsWhere, xValueField: xValueField, yValueField: yValueField, label: label)
     }
     
-    @objc public convenience init(realm: RLMRealm?, modelName: String, resultsWhere: String, yValueField: String, label: String?)
+    @objc public convenience init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, yValueField: String, label: String?)
     {
         self.init(realm: realm, modelName: modelName, resultsWhere: resultsWhere, xValueField: nil, yValueField: yValueField, label: label)
     }
@@ -239,13 +239,14 @@ open class RealmBaseDataSet: ChartBaseDataSet
         var iterator = NSFastEnumerationIterator(results)
         while let e = iterator.next()
         {
-            _cache.append(buildEntryFromResultObject(e as! RLMObject))
+            _cache.append(buildEntryFromResultObject(e as! Object))
         }
     }
     
-    @objc internal func buildEntryFromResultObject(_ object: RLMObject) -> ChartDataEntry
+    @objc internal func buildEntryFromResultObject(_ object: Object) -> ChartDataEntry
     {
-        ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(object[_yValueField!] as! Int))
+        let y = (object[_yValueField!] as! Object)["ele"] as! Int
+        return ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(y))
     }
     
     /// Makes sure that the cache is populated for the specified range
