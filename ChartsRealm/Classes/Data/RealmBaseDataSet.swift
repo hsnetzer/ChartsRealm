@@ -17,7 +17,7 @@ import Realm.Dynamic
 
 open class RealmBaseDataSet: ChartBaseDataSet
 {
-    private let imperial = false
+    private let metric: Bool
 
     @objc open func initialize()
     {
@@ -26,6 +26,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
     
     public required init()
     {
+        metric = false
         super.init()
         
         // default color
@@ -36,6 +37,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
     
     public override init(label: String?)
     {
+        metric = false
         super.init()
         
         // default color
@@ -48,6 +50,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
     
     @objc public init(results: RLMResults<RLMObject>?, xValueField: String?, yValueField: String, label: String?)
     {
+        metric = false
         super.init()
         
         // default color
@@ -132,15 +135,15 @@ open class RealmBaseDataSet: ChartBaseDataSet
         self.init(results: converted, yValueField: yValueField)
     }
     
-    @objc public init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?)
+    @objc public init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?, metric: Bool)
     {
+        self.metric = metric
         super.init()
         
         // default color
         colors.append(NSUIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
         
         self.label = label
-        self.imperial = imperial
         _yValueField = yValueField
         _xValueField = xValueField
         
@@ -152,7 +155,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         initialize()
     }
     
-    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?, imperial: Bool)
+    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?, metric: Bool)
     {
         var converted: RLMRealm?
         
@@ -161,12 +164,12 @@ open class RealmBaseDataSet: ChartBaseDataSet
             converted = ObjectiveCSupport.convert(object: realm!)
         }
         
-        self.init(realm: converted, modelName: modelName, resultsWhere: resultsWhere, xValueField: xValueField, yValueField: yValueField, label: label, imperial: imperial)
+        self.init(realm: converted, modelName: modelName, resultsWhere: resultsWhere, xValueField: xValueField, yValueField: yValueField, label: label, metric: metric)
     }
     
     @objc public convenience init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, yValueField: String, label: String?)
     {
-        self.init(realm: realm, modelName: modelName, resultsWhere: resultsWhere, xValueField: nil, yValueField: yValueField, label: label)
+        self.init(realm: realm, modelName: modelName, resultsWhere: resultsWhere, xValueField: nil, yValueField: yValueField, label: label, metric: false)
     }
     
     public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, yValueField: String, label: String?)
@@ -250,7 +253,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         let location = object[_yValueField!] as! Object
         let y = location["ele"] as! Int
         var x = Double(object[_xValueField!] as! Int)
-        if imperial {
+        if !metric {
             x /= 1609.34
         }
         return ChartDataEntry(x: x, y: Double(y), data: location["waypoint"])
