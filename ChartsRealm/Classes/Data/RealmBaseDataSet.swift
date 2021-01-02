@@ -17,6 +17,8 @@ import Realm.Dynamic
 
 open class RealmBaseDataSet: ChartBaseDataSet
 {
+    private let imperial = false
+
     @objc open func initialize()
     {
         fatalError("RealmBaseDataSet is an abstract class, you must inherit from it. Also please do not call super.initialize().")
@@ -138,7 +140,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         colors.append(NSUIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
         
         self.label = label
-        
+        self.imperial = imperial
         _yValueField = yValueField
         _xValueField = xValueField
         
@@ -150,7 +152,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
         initialize()
     }
     
-    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?)
+    public convenience init(realm: Realm?, modelName: String, resultsWhere: NSPredicate, xValueField: String?, yValueField: String, label: String?, imperial: Bool)
     {
         var converted: RLMRealm?
         
@@ -159,7 +161,7 @@ open class RealmBaseDataSet: ChartBaseDataSet
             converted = ObjectiveCSupport.convert(object: realm!)
         }
         
-        self.init(realm: converted, modelName: modelName, resultsWhere: resultsWhere, xValueField: xValueField, yValueField: yValueField, label: label)
+        self.init(realm: converted, modelName: modelName, resultsWhere: resultsWhere, xValueField: xValueField, yValueField: yValueField, label: label, imperial: imperial)
     }
     
     @objc public convenience init(realm: RLMRealm?, modelName: String, resultsWhere: NSPredicate, yValueField: String, label: String?)
@@ -247,7 +249,11 @@ open class RealmBaseDataSet: ChartBaseDataSet
     {
         let location = object[_yValueField!] as! Object
         let y = location["ele"] as! Int
-        return ChartDataEntry(x: Double(object[_xValueField!] as! Int), y: Double(y), data: location["waypoint"])
+        var x = Double(object[_xValueField!] as! Int)
+        if imperial {
+            x /= 1609.34
+        }
+        return ChartDataEntry(x: x, y: Double(y), data: location["waypoint"])
     }
     
     /// Makes sure that the cache is populated for the specified range
